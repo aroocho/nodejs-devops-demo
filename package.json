@@ -1,13 +1,13 @@
 {
   "name": "nodejs-devops-demo",
   "version": "1.0.0",
+  "description": "Node.js app for Jenkins CI/CD",
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"No tests defined\" && exit 0"
+  },
   "dependencies": {
     "express": "^4.18.2"
   }
-}
-
-"scripts": {
-  "start": "node app.js",
-  "test": "echo \"No tests yet\" && exit 0"
 }
