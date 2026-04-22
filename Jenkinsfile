@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/aroocho/nodejs-devops-demo.git'
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
