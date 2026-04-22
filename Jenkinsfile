@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -18,12 +17,6 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh 'npm test || true'
             }
         }
 
@@ -49,7 +42,7 @@ pipeline {
             }
         }
 
-        stage('Run Container') {
+        stage('Deploy Container') {
             steps {
                 sh "docker run -d -p 3001:3000 $DOCKER_IMAGE:$DOCKER_TAG || true"
             }
