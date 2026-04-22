@@ -19,9 +19,9 @@ pipeline {
             }
         }
 
-        stage('Run App') {
+        stage('Build') {
             steps {
-                sh 'node app.js'
+                sh 'echo "Build stage (add later)"'
             }
         }
     }
