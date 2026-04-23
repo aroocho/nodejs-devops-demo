@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "aroocho/nodejs-devops-demo" 
-        DOCKER_TAG = "v1"
+        DOCKER_IMAGE = "aroocho/nodejs-devops-demo"
+        DOCKER_TAG = "${BUILD_NUMBER}"
     }
 
     stages {
@@ -36,9 +36,9 @@ pipeline {
             }
         }
 
-        stage('Deploy Container') {
+        stage('Deploy to Kubernetes') {
             steps {
-                sh "docker run -d -p 3001:3000 $DOCKER_IMAGE:$DOCKER_TAG || true"
+                sh "kubectl set image deployment/nodejs-app nodejs-app=$DOCKER_IMAGE:$DOCKER_TAG"
             }
         }
     }
